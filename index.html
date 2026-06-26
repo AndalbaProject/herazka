@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Selamat Ulang Tahun ♡</title>
+  <meta name="description" content="Sebuah website kecil yang dibuat dengan penuh cinta untuk ulang tahunmu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- floating flower petals -->
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <!-- background music -->
+  <audio id="bgm" loop preload="auto">
+    <source src="lagu1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ============ LOADING ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-flower">💐</div>
+    <p>Menyiapkan sesuatu yang spesial buat kamu...</p>
+  </div>
+
+  <!-- ============ LOCK / PASSWORD ============ -->
+  <section class="lock hidden" id="lock">
+    <div class="lock-card">
+      <div class="lock-flower">🌸</div>
+      <h1 class="lock-title">Untukmu, Sayangku</h1>
+      <p class="lock-sub">Masukkan kode rahasia kita</p>
+      <div class="pin-dots" id="pinDots">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="keypad" id="keypad">
+        <button data-key="1">1</button>
+        <button data-key="2">2</button>
+        <button data-key="3">3</button>
+        <button data-key="4">4</button>
+        <button data-key="5">5</button>
+        <button data-key="6">6</button>
+        <button data-key="7">7</button>
+        <button data-key="8">8</button>
+        <button data-key="9">9</button>
+        <button data-key="del" class="sub">✕</button>
+        <button data-key="0">0</button>
+        <button data-key="del" class="sub">↩</button>
+      </div>
+      <p class="lock-hint">Petunjuk : tanggal spesial kita 💕</p>
+    </div>
+  </section>
+
+  <!-- ============ GIFT OPENING ============ -->
+  <section class="gift hidden" id="gift">
+    <p class="gift-label">✨ Membuka kadomu... ✨</p>
+    <div class="giftbox" id="giftbox">
+      <div class="rays"></div>
+      <div class="gift-lid"><span class="bow">🎀</span></div>
+      <div class="gift-body"></div>
+    </div>
+    <p class="gift-tap">ketuk kadonya ♡</p>
+  </section>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main" class="hidden">
+
+    <!-- HERO -->
+    <section class="section hero reveal">
+      <p class="eyebrow">🌸 Hari Spesialmu 🌸</p>
+      <h1 class="hero-title">Selamat<br /><em>Ulang Tahun</em><br /><span class="hero-name" id="heroName">Ciwa</span></h1>
+      <span class="rule"></span>
+      <p class="hero-date" id="heroDate">JUNE 10 &nbsp;·&nbsp; HARI PALING SPESIAL</p>
+      <p class="scroll-cue">⌄<br /><span>gulir ke bawah</span></p>
+    </section>
+
+    <!-- DIGITAL BOUQUET -->
+    <section class="section bouquet reveal">
+      <p class="section-eyebrow">— KADO PERTAMAKU —</p>
+      <h2 class="section-title">Buket Bunga Digital</h2>
+      <p class="section-sub">Setiap bunga punya pesan kecil khusus buatmu</p>
+
+      <div class="vase-stage" id="vaseStage">
+        <button class="flower"
+          data-msg="Kamu seindah bunga sakura menawan dan membawa kebahagiaan ke mana pun kamu pergi.">🌸</button>
+        <button class="flower"
+          data-msg="Keceriaanmu bagaikan bunga aster sederhana namun mencerahkan hari setiap orang.">🌼</button>
+        <button class="flower"
+          data-msg="Seperti bunga mawar, kamu bersinar, kuat, dan benar-benar tak terlupakan.">🌹</button>
+        <button class="flower" data-msg="Seperti bunga tulip, cintamu lembut dan selalu mekar dengan tenang.">🌷</button>
+        <button class="flower" data-msg="Kehangatanmu bagaikan bunga matahari yang selalu menghadap ke arah cahaya.">🌻</button>
+        <div class="vase"><span>🎀</span></div>
+      </div>
+
+      <p class="hint-small">Sentuh setiap bunga untuk melihat pesannya 💕</p>
+      <div class="flower-msg" id="flowerMsg">Ketuk bunga di atas ✿</div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="section letter reveal">
+      <p class="section-eyebrow">— DARI LUBUK HATIKU —</p>
+      <h2 class="section-title">Surat Untukmu</h2>
+      <article class="letter-card">
+        <span class="letter-stamp" id="letterStamp">June 10</span>
+        <h3 class="letter-greet">Teruntuk <span id="letterName">Ciwa</span> sayang,</h3>
+        <div id="letterBody"></div>
+      </article>
+    </section>
+
+    <!-- PHOTO MEMORIES -->
+    <section class="section memories reveal">
+      <p class="section-eyebrow">— KUMPULAN KENANGAN —</p>
+      <h2 class="section-title">Kenangan Foto Kita</h2>
+      <p class="section-sub">Setiap foto menyimpan cerita indah</p>
+      <div class="polaroids" id="polaroids"></div>
+    </section>
+
+    <!-- PLAYLIST -->
+    <section class="section playlist reveal">
+      <h2 class="section-title">Playlist Spesial</h2>
+      <p class="section-sub">Lagu-lagu yang selalu ngingetin aku ke kamu 🌼</p>
+      <div class="player">
+        <div class="disc" id="disc"><span class="disc-center"></span></div>
+        <p class="np-title" id="npTitle">—</p>
+        <p class="np-artist" id="npArtist">—</p>
+        <div class="progress" id="progress"><span id="progressFill"></span></div>
+        <div class="player-btns">
+          <button id="prevBtn" aria-label="prev">⏮</button>
+          <button id="playBtn" class="play" aria-label="play">▶</button>
+          <button id="nextBtn" aria-label="next">⏭</button>
+        </div>
+      </div>
+      <ul class="song-list" id="songList"></ul>
+    </section>
+
+    <!-- JAR -->
+    <section class="section jar-sec reveal">
+      <p class="section-eyebrow">— DARI HATIKU UNTUK HATIMU —</p>
+      <h2 class="section-title">Alasan Aku Bersyukur Kenal Kamu</h2>
+      <p class="section-sub">Kocok toplesnya dan ambil pesan di dalamnya 🫙</p>
+      <div class="jar" id="jar">
+        <div class="jar-lid"></div>
+        <div class="jar-body">
+          <span class="luv l1">💙</span>
+          <span class="luv l2">🩵</span>
+          <span class="luv l3">🤍</span>
+          <span class="luv l4">💙</span>
+          <span class="luv l5">🩵</span>
+          <span class="luv l6">💙</span>
+          <span class="luv l7">🤍</span>
+          <span class="luv l8">🩵</span>
+          <span class="luv l9">💙</span>
+          <span class="luv l10">🤍</span>
+        </div>
+      </div>
+      <button class="pill-btn" id="shakeBtn">🫙 Kocok Toples</button>
+      <div class="jar-note" id="jarNote"></div>
+    </section>
+
+    <!-- FINAL WISH -->
+    <section class="section wish reveal">
+      <p class="eyebrow">🌸 Dengan sepenuh hati 🌸</p>
+      <h2 class="wish-title">Semoga hidupmu selalu <em>dipenuhi</em> hal-hal indah</h2>
+      <p class="wish-text" id="wishText"></p>
+      <button class="pill-btn glow" id="celebrateBtn">🎂 Rayakan</button>
+      <p class="signoff">Dengan cinta yang tak pernah habis 💕</p>
+    </section>
+
+  </main>
+
+  <!-- ============ HAPPY BIRTHDAY MODAL ============ -->
+  <div class="modal hidden" id="hbdModal">
+    <div class="modal-flowers" id="modalFlowers" aria-hidden="true"></div>
+    <div class="modal-card">
+      <div class="cake">🎂</div>
+      <h2 class="modal-title">Selamat Ulang Tahun!</h2>
+      <p class="modal-sub">Teruntuk <span id="modalName">Ciwa</span> yang paling spesial 🌸</p>
+      <p class="modal-foot">Dengan cinta yang tak pernah habis 💕</p>
+      <button class="pill-btn" id="closeModal">Tutup ✕</button>
+    </div>
+  </div>
+
+  <!-- ============ PHOTO LIGHTBOX ============ -->
+  <div class="lightbox hidden" id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="tutup">✕</button>
+    <figure class="lb-figure">
+      <img id="lbImg" alt="memory" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
